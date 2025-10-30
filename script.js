@@ -1,3 +1,15 @@
+(function() {
+    const body = document.body;
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme) {
+        // Se tem tema salvo no localStorage, aplica
+        body.setAttribute('data-theme', savedTheme);
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // Se não tem salvo, checa a preferência do sistema
+        body.setAttribute('data-theme', 'dark');
+    }
+})();
 
 $(document).ready(function(){
     $(window).scroll(function(){
@@ -54,6 +66,37 @@ $(document).ready(function(){
         }
     });
 });
+const toggleBtn = document.getElementById('toggle-theme');
+const body = document.body;
+
+if (toggleBtn) {
+    
+    // Define o ícone inicial do botão (baseado no tema que já foi aplicado)
+    const currentTheme = body.getAttribute('data-theme');
+    if (currentTheme === 'dark') {
+        toggleBtn.textContent = '☀️';
+        toggleBtn.setAttribute('aria-label', 'Ativar modo claro');
+    } else {
+        toggleBtn.textContent = '🌙';
+        toggleBtn.setAttribute('aria-label', 'Ativar modo noturno');
+    }
+
+    // Adiciona o evento de clique
+    toggleBtn.addEventListener('click', () => {
+        const current = body.getAttribute('data-theme');
+        const newTheme = current === 'dark' ? 'light' : 'dark';
+
+        body.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+
+        toggleBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        toggleBtn.setAttribute(
+            'aria-label',
+            newTheme === 'dark' ? 'Ativar modo claro' : 'Ativar modo noturno'
+        );
+    });
+}
+
 
 // Função mostrar/esconder senha
 function mostrar(){

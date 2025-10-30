@@ -1,4 +1,35 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+:root {
+    --bg-primary: #f6f5f7;
+    --bg-secondary: #fff;
+    --bg-input: #fff; /* Fundo do input no modo claro */
+    --text-primary: #000;
+    --text-secondary: #333;
+    --text-on-accent: #fff;
+    --accent-primary: #0036ff;
+    --accent-primary-hover: #064bb9;
+    --overlay-gradient: linear-gradient(to-right, #0036ff, #64a5fa);
+    --border-light: #ccc;
+    --shadow-primary: rgba(0, 0, 0, 0.25);
+    --shadow-secondary: rgba(0, 0, 0, 0.22);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --bg-input: #333; /* Fundo do input no modo escuro */
+    --text-primary: #f1f1f1;
+    --text-secondary: #f1f1f1;
+    --text-on-accent: #fff;
+    --accent-primary: #0036ff; /* Mantém o azul vibrante */
+    --accent-primary-hover: #064bb9;
+    --overlay-gradient: linear-gradient(to-right, #0036ff, #64a5fa); /* Gradiente mantido */
+    --border-light: #555;
+    --shadow-primary: rgba(255, 255, 255, 0.1);
+    --shadow-secondary: rgba(255, 255, 255, 0.08);
+}
+
 *{
     box-sizing: border-box;
 }
@@ -7,22 +38,25 @@ body{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: #f6f5f7;
+    background-color: var(--bg-primary);
+    color: var(--text-primary); /* Adicionado */
     font-family: 'monserrat',sans-serif;
     min-height: 100%;
     height: 100%;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 .container{
     position: relative;
     width: 768px;
     max-width: 100%;
     min-height: 480px;
-    background-color: #fff;
+    background-color: var(--bg-secondary);
     border-radius: 10px;
     overflow: hidden;
     flex-direction: row;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-                0 10px 10px rgba(0, 0, 0, 0.22)
+    box-shadow: 0 14px 28px var(--shadow-primary),
+                0 10px 10px var(--shadow-secondary);
+    transition: background-color 0.3s ease;
 }
 .sign-up, .sign-in{
     position: absolute;
@@ -41,7 +75,7 @@ body{
     z-index: 2;
 }
 form{
-    background: #fff;
+    background: var(--bg-secondary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,10 +83,12 @@ form{
     padding: 0 50px;
     height: 100%;
     text-align: center;
+    transition: background-color 0.3s ease;
 }
 h1{
     font-weight: bold;
     margin: 0;
+    color: var(--text-primary); /* Adicionado */
 }
 p{
     font-size: 14px;
@@ -60,20 +96,23 @@ p{
     line-height: 20px;
     letter-spacing: 0.5px;
     margin: 15px 0 20px;
+    color: var(--text-primary); /* Adicionado */
 }
 input{
-    background: #fff;
+    background: var(--bg-input);
+    color: var(--text-primary); /* Adicionado */
     padding: 12px 15px;
     margin: 15px 0;
     width: 100%;
     border-radius: 5px;
-    border: none;
+    border: 1px solid var(--border-light); /* Borda adicionada para dark mode */
     outline: none;
     max-width: 300px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a{
-    color:#333;
+    color: var(--text-secondary);
     font-size: 14px;
     text-decoration: none;
     margin: 15px 0;
@@ -84,99 +123,105 @@ a{
 }
 
 button{
-    color: #fff;
-    background: #0036ff;
+    color: var(--text-on-accent);
+    background: var(--accent-primary);
     font-size: 12px;
     font-weight: bold;
     padding: 12px 55px;
     margin: 20px 0;
     border-radius: 20px;
-    border: 1px solid #0036ff;
+    border: 1px solid var(--accent-primary);
     outline: none;
     letter-spacing: 1px;
     text-transform: uppercase;
-    transition: transform 80ms ease-in;
+    transition: transform 80ms ease-in, background-color 0.3s ease;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #064bb9;
+    background-color: var(--accent-primary-hover);
 }
 
 /*hovers tela de cadastro*/ 
 
 #sign-in, #sign-up{
     background-color: transparent;
-    border: 2px solid #fff;
+    border: 2px solid var(--text-on-accent);
 }
 
 .sign-up :focus-visible{
-    outline: 1px solid #333;
+    outline: 1px solid var(--text-secondary);
 }
 
 .sign-up input:hover{
-    background-color:#fff;
+    background-color: var(--bg-input);
 }
 
 .sign-in input:focus-visible{
-    outline: 1px solid #333;
+    outline: 1px solid var(--text-secondary);
 }
 
 .sign-in input:hover{
-    background-color:#fff;
+    background-color: var(--bg-input);
 }
 
 #sign-up:hover{
-    outline:2px solid #fff;
- }
+    outline:2px solid var(--text-on-accent);
+}
  
- #sign-in:hover{
-     outline:2px solid #fff;
-  }
+#sign-in:hover{
+    outline:2px solid var(--text-on-accent);
+}
  
 
 /*Ver a senha digitada*/
 .cadastro-container{
     position: relative;
     width: 100%;
+    max-width: 300px; /* Alinhado com o 'input' */
 }
 
 #sppassword{
     width: 100%;
-    padding: 10px;
+    padding: 12px 15px; /* Alinhado com o 'input' */
     font-size: 16px;
-    border: 2px solid #fff;
+    border: 1px solid var(--border-light); /* Alinhado com o 'input' */
     border-radius: 5px;
+    margin: 15px 0; /* Alinhado com o 'input' */
 }
 #toque{
     font-size: 20px;
     position: absolute;
     right: 9px;
-    top: 27px;
+    top: 50%; /* Centralizado verticalmente */
+    transform: translateY(-50%); /* Centralizado verticalmente */
     cursor: pointer;
-    color: #333;
+    color: var(--text-secondary);
     box-sizing: border-box;
 }
 
 .login-container{
     position: relative;
     width: 100%;
+    max-width: 300px; /* Alinhado com o 'input' */
 }
 
 #sipassword{
     width: 100%;
-    padding: 10px;
+    padding: 12px 15px; /* Alinhado com o 'input' */
     font-size: 16px;
-    border: 2px solid #fff;
+    border: 1px solid var(--border-light); /* Alinhado com o 'input' */
     border-radius: 5px;
+    margin: 15px 0; /* Alinhado com o 'input' */
 }
 #toquesi{
     font-size: 20px;
     position: absolute;
     right: 9px;
-    top: 27px;
+    top: 50%; /* Centralizado verticalmente */
+    transform: translateY(-50%); /* Centralizado verticalmente */
     cursor: pointer;
-    color: #333;
+    color: var(--text-secondary);
     box-sizing: border-box;
 }
 
@@ -204,12 +249,12 @@ button:hover {
 }
 .overlay{
     position: relative;
-    color: #fff;
-    background: #2282ff;
+    color: var(--text-on-accent);
+    background: var(--accent-primary); /* Cor sólida de fallback */
     left: -100%;
     height: 100%;
     width: 200%;
-    background: linear-gradient(to-right, #0036ff, #64a5fa);
+    background: var(--overlay-gradient);
     transform: translateX(0);
     transition: transform 0.6s ease-in-out;
 }
@@ -253,6 +298,7 @@ button:hover {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-light);
     border-radius: 50px;
+    color: var(--text-secondary); /* Adicionado para o ícone */
 }

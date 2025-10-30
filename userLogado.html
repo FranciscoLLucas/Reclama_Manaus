@@ -22,7 +22,10 @@
                 <li><a href="#skills">Canais de apoio</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
-            <button class="btn-entrar" onclick="window.location.href='Perfil.html'">Perfil</button>
+            <div class="nav-buttons">
+                <button id="toggle-theme" aria-label="Ativar modo noturno">🌙</button>
+                <button class="btn-entrar" onclick="window.location.href='Perfil.html'">Perfil</button>
+            </div>
             <div class="menu-btn">
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
@@ -283,19 +286,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-    
-    <script>
-        const firebaseConfig = {
-        apiKey: "AIzaSyAq7ZSY9zJSIAHkhollNVHobntjfmMjdD4",
-        authDomain: "reclamamanaus-f23fa.firebaseapp.com",
-        projectId: "reclamamanaus-f23fa",
-        storageBucket: "reclamamanaus-f23fa.firebasestorage.app",
-        messagingSenderId: "735372483202",
-        appId: "1:735372483202:web:09da0010bd8da53645729b"
-        };
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-    </script>
+    <script src="firebase-config.js"></script>
     <script src="script.js"></script>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">

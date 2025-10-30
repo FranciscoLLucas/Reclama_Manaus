@@ -1,3 +1,48 @@
+:root {
+    --bg-primary: #f0f2f5;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #cae4f7;
+    --bg-input: #ffffff;
+    --bg-input-file: #f9f9f9;
+    
+    --text-primary: #333;
+    --text-secondary: #555;
+    --text-on-accent: #ffffff;
+
+    --accent-primary: #0036ff;
+    --accent-primary-hover: #064bb9;
+    --accent-secondary: #007bff;
+    --accent-secondary-hover: #0056b3;
+
+    --border-light: #ddd;
+    --border-medium: #ccc;
+    
+    --shadow-color: rgba(14, 11, 192, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --bg-tertiary: #1f3a52; /* Azul acinzentado escuro */
+    --bg-input: #333;
+    --bg-input-file: #2c2c2c;
+
+    --text-primary: #f1f1f1;
+    --text-secondary: #b0b0b0;
+    --text-on-accent: #ffffff;
+
+    --accent-primary: #0036ff;
+    --accent-primary-hover: #064bb9;
+    --accent-secondary: #007bff;
+    --accent-secondary-hover: #0056b3;
+
+    --border-light: #444;
+    --border-medium: #555;
+
+    --shadow-color: rgba(0, 123, 255, 0.1); /* Sombra azulada */
+}
+
+
 /* Reset básico */
 * {
     margin: 0;
@@ -7,22 +52,25 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
+    background-color: var(--bg-primary);
+    color: var(--text-primary); /* Adicionado */
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Menu de Navegação */
 .navbar {
     width: 100%;
-    background-color: #0036ff;
+    background-color: var(--accent-primary);
     padding: 15px;
     text-align: center;
+    transition: background-color 0.3s ease;
 }
 
 .navbar a {
-    color: white;
+    color: var(--text-on-accent);
     text-decoration: none;
     margin: 0 20px;
     font-weight: bold;
@@ -36,25 +84,27 @@ body {
 /* Container Principal */
 .container {
     display: flex;
-    background-color: #ffffff;
+    background-color: var(--bg-secondary);
     border-radius: 12px;
-    box-shadow: 0px 4px 12px rgba(14, 11, 192, 0.1);
+    box-shadow: 0px 4px 12px var(--shadow-color);
     overflow: hidden;
     width: 80%;
     max-width: 1200px;
     margin-top: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Seção de Instruções */
 .instructions {
-    background-color: #ffffff;
+    background-color: var(--bg-secondary);
     padding: 30px;
     width: 50%;
+    transition: background-color 0.3s ease;
 }
 
 .instructions h2 {
     font-size: 24px;
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 20px;
 }
 
@@ -66,18 +116,18 @@ body {
 
 .step .icon {
     font-size: 30px;
-    color: #007bff;
+    color: var(--accent-secondary);
     margin-right: 15px;
 }
 
 .instructions p {
     font-size: 16px;
-    color: #333;
+    color: var(--text-primary);
 }
 
 /* Seção do Formulário */
 .form-container {
-    background-color: #cae4f7;
+    background-color: var(--bg-tertiary);
     padding: 20px;
     width: 50%;
     display: flex;
@@ -85,6 +135,7 @@ body {
     align-items: center;
     flex-direction: column;  
     text-align: center; 
+    transition: background-color 0.3s ease;
 }
 
 /* Estilo do formulário */
@@ -104,9 +155,12 @@ input, textarea, select {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-light);
     border-radius: 8px;
     font-size: 18px;
+    background-color: var(--bg-input); /* Adicionado */
+    color: var(--text-primary); /* Adicionado */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 textarea {
@@ -120,8 +174,8 @@ textarea {
 button {
     width: 70%;
     padding: 12px;
-    background-color: #0036ff;
-    color: white;
+    background-color: var(--accent-primary);
+    color: var(--text-on-accent);
     font-size: 18px;
     font-weight: bold;
     border: none;
@@ -133,7 +187,7 @@ button {
 }
 
 button:hover {
-    background-color: #064bb9;
+    background-color: var(--accent-primary-hover);
 }
 
 /* Estilo do card */
@@ -141,36 +195,37 @@ button:hover {
     width: 100%;
     padding: 30px 30px 40px;
     text-align: center;
-    background-color: #ffffff;
+    background-color: var(--bg-secondary);
     align-items: center;
     border-radius: 8px;
+    transition: background-color 0.3s ease;
 }
 
 h1 {
     font-size: 24px;
-    color: #333;
+    color: var(--text-primary);
     margin-bottom: 20px;
 }
 
 /* Botão customizado para o upload */
 label.custom-button {
     display: inline-block;
-    background-color: #007BFF;
-    color: #fff;
+    background-color: var(--accent-secondary);
+    color: var(--text-on-accent);
     padding: 10px 68px;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
     margin-bottom: 10px;
-    border: 2px solid #007BFF;
+    border: 2px solid var(--accent-secondary);
     transition: background-color 0.3s;
-    text-align: center; 
+    text-align: center;  
     width: 100%;
 }
 
 /* Efeito ao passar o mouse sobre o botão */
 label.custom-button:hover {
-    background-color: #0056b3; 
+    background-color: var(--accent-secondary-hover); 
 }
 
 /* Esconde o input de file */
@@ -181,11 +236,12 @@ input[type="file"] {
 /* Nome do arquivo */
 #file-name {
     font-size: 14px;
-    color: #555;
+    color: var(--text-secondary);
     margin-bottom: 20px;
     padding: 10px;
-    border: 2px solid #ccc; 
+    border: 2px solid var(--border-medium); 
     border-radius: 4px;
-    background-color: #f9f9f9;
+    background-color: var(--bg-input-file);
     text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
