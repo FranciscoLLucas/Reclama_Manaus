@@ -96,6 +96,23 @@ if (toggleBtn) {
         );
     });
 }
+// ======== MODO DALTÔNICO ========
+const colorblindSelect = document.getElementById('colorblind-mode');
+
+if (colorblindSelect) {
+    // Carrega o modo salvo
+    const savedMode = localStorage.getItem('colorblind-mode') || 'none';
+    document.body.setAttribute('data-colorblind', savedMode);
+    colorblindSelect.value = savedMode;
+
+    // Muda o modo ao selecionar
+    colorblindSelect.addEventListener('change', (e) => {
+        const mode = e.target.value;
+        document.body.setAttribute('data-colorblind', mode);
+        localStorage.setItem('colorblind-mode', mode);
+    });
+}
+
 
 
 // Função mostrar/esconder senha

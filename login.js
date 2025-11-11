@@ -1,8 +1,10 @@
+// REMOVA ou comente este trecho:
 firebase.auth().onAuthStateChanged(user => {
-    if(user){
+    if (user) {
         window.location.href = 'userLogado.html';
     }
-})
+});
+
 function login() {
     const email = document.getElementById("login-email").value;
     const password = document.getElementById("sipassword").value;

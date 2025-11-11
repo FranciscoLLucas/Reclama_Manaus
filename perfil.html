@@ -12,34 +12,50 @@
 <body>
 
 <section id="perfil">
+    
     <div class="container_p">
-        <button id="toggle-theme" aria-label="Ativar modo noturno">🌙</button>
-        
+        <h1>Modos de daltonismo</h1>
+        <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+            <!-- Botão de tema -->
+            <button id="toggle-theme" aria-label="Ativar modo noturno">🌙</button>
+
+            <!-- Seletor de daltonismo -->
+            
+            <select id="colorblind-mode">
+                <option value="none">Sem filtro</option>
+                <option value="protanopia">Protanopia</option>
+                <option value="deuteranopia">Deuteranopia</option>
+                <option value="tritanopia">Tritanopia</option>
+            </select>
+        </div>
+
         <h2 class="title">Perfil</h2>
         <h1>Bem-vindo, <span id="user-name"></span>!</h1>
         <p><strong>Email:</strong> <span id="user-email"></span></p>
+
         <button id="voltar">Voltar</button>
         <button id="logout-button">Sair</button>
-        
+
         <h2>Suas Melhorias</h2>
         <ul id="user-improvements"></ul>
-        
-        <h2> Suas Denúncias</h2>
-        <ul id="denuncia">
-        </ul>
-        
+
+        <h2>Suas Denúncias</h2>
+        <ul id="denuncia"></ul>
+
         <p id="status-message" style="color: red;"></p>
     </div>
 </section>
 
 
-    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore-compat.js"></script>
-    <script src="firebase-config.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="perfil.js"></script>
-    <script src="script.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore-compat.js"></script>
+
+<script src="firebase-config.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="perfil.js"></script>
+<script src="script.js"></script>
+<script src="acessibilidade.js"></script>
+
 </body>
 </html>
-

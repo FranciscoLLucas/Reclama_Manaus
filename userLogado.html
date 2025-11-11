@@ -10,11 +10,20 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <script>
+  fetch('filtros-daltonismo.svg')
+    .then(r => r.text())
+    .then(svg => document.body.insertAdjacentHTML('afterbegin', svg));
+</script>
+
     <div class="scroll-up-btn">
         <ion-icon name="chevron-up-outline"></ion-icon>
     </div>
     <div class="navbar">
         <div class="max-width">
+            <div class="logo">
+                <img src="image/SublogoRM.png" alt="sublogo" class="sublogo">
+            </div>
             <ul class="menu">
                 <li><a href="#home">Inicio</a></li>
                 <li><a href="#about">Sobre</a></li>
@@ -288,7 +297,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     <script src="firebase-config.js"></script>
     <script src="script.js"></script>
-    
+    <script src="acessibilidade.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 
 </body>

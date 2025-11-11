@@ -187,4 +187,18 @@ ul#denuncia li:empty::before {
     margin-top: 20px;
     font-size: 1rem;
 }
+/* ======== MODO DALTÔNICO ======== */
+[data-colorblind="protanopia"] {
+    filter: brightness(0.95) sepia(0.5) saturate(0.8) hue-rotate(-20deg);
+}
+
+[data-colorblind="deuteranopia"] {
+    filter: brightness(0.95) sepia(0.5) saturate(0.8) hue-rotate(-40deg);
+}
+
+[data-colorblind="tritanopia"] {
+    filter: brightness(1.1) sepia(0.4) saturate(0.7) hue-rotate(50deg);
+}
+
+
 
