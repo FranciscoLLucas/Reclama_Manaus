@@ -41,7 +41,7 @@ function register() {
                             createdAt: firebase.firestore.FieldValue.serverTimestamp()
                         }).then(() => {
                             console.log('Usuário salvo no Firestore com sucesso!');
-                            window.location.href = 'CadUser.html';
+                            window.location.href = 'cadUser.html';
                         }).catch(err => {
                             console.error('Erro ao salvar no Firestore:', err);
                         });

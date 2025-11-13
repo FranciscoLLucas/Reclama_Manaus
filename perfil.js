@@ -57,7 +57,7 @@ firebase.auth().onAuthStateChanged(user => {
                 document.getElementById("status-message").textContent = "Erro ao carregar denúncias.";
             });
     } else {
-        window.location.href = "CadUser.html";
+        window.location.href = "cadUser.html";
     }
 });
 
@@ -73,7 +73,7 @@ logoutButton.addEventListener('click', () => {
     firebase.auth().signOut()
         .then(() => {
             alert('Você saiu da conta.');
-            window.location.href = "CadUser.html";
+            window.location.href = "cadUser.html";
         })
         .catch(error => {
             console.error("Erro ao fazer logout:", error);
