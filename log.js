@@ -1,15 +1,15 @@
 firebase.auth().onAuthStateChanged(user => {
     const path = window.location.pathname;
     if (user && path.includes('cadUser.html')) {
-        window.location.href = 'userlogado.html';
+        window.location.href = 'index.html';
     }
 
     else if (user && path.includes('index.html')) {
-        window.location.href = 'userlogado.html';
+        window.location.href = 'index.html';
     }
 
     else if (!user && (
-        path.includes('userlogado.html') ||
+        path.includes('index.html') ||
         path.includes('cadastro_denuncia.html') ||
         path.includes('cadastro_melhoria.html')
     )) {
