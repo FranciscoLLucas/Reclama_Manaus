@@ -64,7 +64,7 @@ firebase.auth().onAuthStateChanged(user => {
 
 const voltar = document.getElementById('voltar');
 voltar.addEventListener('click', () => {
-    window.location.href = "userLogado.html";
+    window.location.href = "user_logado.html";
 });
 
 

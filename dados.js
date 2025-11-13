@@ -58,7 +58,7 @@ async function enviarMelhoria() {
         console.error("Erro ao enviar os dados:", error);
         alert("Erro ao enviar os dados. Por favor, tente novamente.", error);
     }
-    window.location.href = "userLogado.html";
+    window.location.href = "user_logado.html";
 
 
 }
