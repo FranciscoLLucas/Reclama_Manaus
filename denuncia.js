@@ -55,5 +55,5 @@ async function enviarDenunciar() {
         console.error("Erro ao enviar os dados:", error);
         alert("Erro ao enviar os dados. Por favor, tente novamente.");
     }
-    window.location.href = "user_logado.html";
+    window.location.href = "userlogado.html";
 }

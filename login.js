@@ -1,7 +1,7 @@
 // REMOVA ou comente este trecho:
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
-        window.location.href = 'user_logado.html';
+        window.location.href = 'userlogado.html';
     }
 });
 
@@ -11,7 +11,7 @@ function login() {
     
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then(response => {
-            window.location.href = 'user_logado.html';
+            window.location.href = 'userlogado.html';
             console.log('Sucesso');
         })
         .catch(error => {
