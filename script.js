@@ -143,40 +143,33 @@ function mostrarsi(){
 }
 // script.js
 
-// Referência para o formulário
+
 const reportForm = document.getElementById('reportForm');
 
-// Adiciona evento de envio ao formulário
-reportForm.addEventListener('submit', function (event) {
-    event.preventDefault();
+if (reportForm) {
+    reportForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        alert("Denúncia enviada com sucesso!");
+        reportForm.reset();
+    });
+}
 
-    // Simulação de envio de formulário
-    alert("Denúncia enviada com sucesso!");
-    
-    // Limpa o formulário após o envio
-    reportForm.reset();
-});
-// Verificação de Autenticação
 firebase.auth().onAuthStateChanged((user) => {
     const authBtn = document.getElementById('auth-btn');
 
-    if (user) {
-        // --- USUÁRIO LOGADO ---
-        console.log("Usuário está logado:", user.email);
-        authBtn.textContent = "Perfil"; // Muda o texto do botão
-        
-        // Quando clicar, vai para o perfil
-        authBtn.onclick = function() {
-            window.location.href = 'perfil.html';
-        };
-    } else {
-        // --- USUÁRIO NÃO LOGADO ---
-        console.log("Nenhum usuário logado.");
-        authBtn.textContent = "Entrar"; // Garante que o texto seja Entrar
-        
-        // Quando clicar, vai para o cadastro/login
-        authBtn.onclick = function() {
-            window.location.href = 'cadUser.html';
-        };
+    if (authBtn) {
+        if (user) {
+            console.log("Usuário logado: ", user.email);
+            authBtn.textContent = "Perfil";
+            authBtn.onclick = function() {
+                window.location.href = 'perfil.html';
+            };
+        } else {
+            console.log("Usuário não logado");
+            authBtn.textContent = "Entrar";
+            authBtn.onclick = function() {
+                window.location.href = 'cadUser.html';
+            };
+        }
     }
 });
