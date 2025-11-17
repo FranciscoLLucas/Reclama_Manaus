@@ -26,8 +26,8 @@
                 <li><a href="#contact">Contato</a></li>
             </ul>
             <div class="nav-buttons">
-                <button id="toggle-theme" aria-label="Ativar modo noturno">🌙</button>
-                <button id="auth-btn" class="btn-entrar">Entrar</button>
+                <button class="btn" id="toggle-theme" aria-label="Ativar modo noturno">🌙</button>
+                <button id="auth-btn" class="btn-entrar" data-link="login.html">Entrar</button>
             </div>
            
             <div class="menu-btn">
@@ -79,7 +79,7 @@
             <h2 class="title">Aqui você pode:</h2>
             <div class="serv-content">
                 <!-- Card Denúncia -->
-            <div class="card" id="denuncia-card" onclick="window.location.href='cadastro_denuncia.html'">
+            <div class="card .btn-sound" id="denuncia-card" onclick="window.location.href='cadastro_denuncia.html'">
                 <div class="box">
                     <ion-icon name="warning-outline"></ion-icon>
                     <div class="text">Denunciar</div>
@@ -88,7 +88,7 @@
             </div>
 
            <!-- Card Sugerir Melhoria -->
-           <div class="card" id="melhoria-card" onclick="window.location.href='cadastro_melhoria.html'">
+           <div class="card .btn-sound" id="melhoria-card" onclick="window.location.href='cadastro_melhoria.html'">
             <div class="box">
                 <ion-icon name="trending-up-outline"></ion-icon>
                 <div class="text">Sugerir melhorias</div>
@@ -291,7 +291,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     
-   <script src="firebase-config.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="sounds.js"></script>
     <script src="script.js"></script>
     <script src="acessibilidade.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
