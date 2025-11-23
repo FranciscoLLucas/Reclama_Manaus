@@ -82,6 +82,8 @@
 
     /* Você pode querer uma imagem de banner mais escura aqui */
     /* --home-bg-image: url(image/banner2-dark.png); */ 
+    --home-bg-image: url(image/banner2_black.png);
+
     --home-text: #f1f1f1;
 
     --section-title-line: #00008B;
@@ -120,30 +122,53 @@ html{
 }
 .max-width{
     max-width: 1300px;
-    padding: 0 80px;
+    padding: 1rem;
     margin: auto;
 }
 /* navbar    inicio*/
 .navbar{
+    display: flex;
     position: fixed;
+    flex-wrap: wrap;
     width: 100%;
-    padding: 30px 0;
     font-family: 'Ubuntu', sans-serif;
     z-index: 999;
     transition: all 0.3s ease;
 }
+
+.navbar .max-width {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    gap: 0 2rem;
+}
+
+.navbar .max-width .nav-right{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.navbar .logo{
+    display: flex;
+    margin-left: auto;
+}
+
 .navbar.sticky{
      background: var(--navbar-bg-sticky);
      padding: 15px 0;
 }
-.navbar .max-width {
+
+.navbar .nav-buttons{
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: 0 0.3rem;
 }
+
 .nav-buttons {
     display: flex;
-    align-items: center;
     gap: 15px;
 }
 .navbar .logo a{
@@ -160,15 +185,44 @@ html{
 }
 .navbar .menu li{
     list-style: none;
-    display: inline-block;
+    display: flex;
+    justify-content: left;
+    gap: 0 1rem;
 }
 .navbar .menu li a{
     color: var(--navbar-text);
-    font-size: 18px;
+    font-size: 1.1rem;
     font-weight: 500;
-    margin-left: 25px;
+    margin-left: 1rem;
     transition: color 0.3s ease;
 }
+
+/* Ajustando a sublogo para ficar mais à esquerda */
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    position: relative;
+    margin: 1rem;
+    top: 50%;
+    transform: scale(1.5);
+    z-index: 100;
+}
+
+.navbar .logo .menu{
+    display: flex;
+}
+
+.navbar .logo img.sublogo {
+    height: 40px;
+    width: auto;
+    transition: all 0.3s ease;
+}
+
+.navbar .logo img.sublogo:hover {
+    opacity: 0.8;
+}
+
 .navbar .menu li a:hover{
     color: var(--navbar-text-hover);
 }
@@ -331,37 +385,23 @@ section .title::after{
     align-items: center;
     justify-content: space-between;
 }
-/* Ajustando a sublogo para ficar mais à esquerda */
-.navbar .logo {
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 100;
-}
 
-.navbar .logo img.sublogo {
-    height: 40px;
-    width: auto;
-    transition: all 0.3s ease;
-}
-
-.navbar .logo img.sublogo:hover {
-    opacity: 0.8;
-}
-.navbar .menu {
-    margin-left: -30px;
-}
 /* sessão sobre  */
 
 .about .title::after{
     content: "";
 }
+.about-content{
+    display: flex;
+    flex-wrap: column;
+    flex-direction: row;
+    gap: 1rem;
+}
 .about .about-content .left{
-    width: 45%;
+    width: 35%;
 }
 .about .about-content .right{
-    width: 55%;
+    width: 45%;
 }
 .about .about-content .right .text{
     font-size: 25px;
@@ -448,19 +488,23 @@ section .title::after{
     display: flex;
     list-style: none;
     padding: 0;
-    }
+    justify-content: space-between;
+    margin-left: auto;
+}
+
     
-    .menu li {
+.menu li {
     margin-right: 10px;
-    }
-    
-    button {
+}
+
+button {
     padding: 10px 20px;
-    }
+}
     
 .teams .title::after{
     content: "";
 }
+
 .teams .carousel .card{
     background: var(--card-teams-bg);
     border-radius: 6px;
@@ -637,7 +681,7 @@ footer span a:hover{
 
 
 /* responsivo  */
-@media (max-width: 1300px){
+/*@media (max-width: 1300px){
     .navbar .max-width{
         margin-left: 0;
     }
@@ -739,7 +783,8 @@ footer span a:hover{
     .home .home-content .text-3{
         font-size: 27px;
     }
-}
+} */
+
 /* Estilo do card */
 .serv-content .card {
     /* Ajustado acima na regra .services .serv-content .card */
