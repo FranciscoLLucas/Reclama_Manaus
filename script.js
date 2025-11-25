@@ -186,3 +186,22 @@ firebase.auth().onAuthStateChanged((user) => {
         if (window.updateVLibras) updateVLibras();
     }
 });
+const menuBtn = document.querySelector(".menu-btn");
+const menu = document.querySelector(".navbar .menu");
+
+if (menuBtn) {
+    menuBtn.addEventListener("click", () => {
+        if (menu.style.left === "0px") {
+            menu.style.left = "-100%"; // fechar
+        } else {
+            menu.style.left = "0px"; // abrir
+        }
+    });
+}
+
+// Fechar menu ao clicar em um link
+document.querySelectorAll(".navbar .menu li a").forEach(link => {
+    link.addEventListener("click", () => {
+        menu.style.left = "-100%"; // fecha corretamente
+    });
+});
